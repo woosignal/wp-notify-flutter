@@ -70,7 +70,7 @@ For help getting started with WooSignal, view our
 [online documentation](https://woosignal.com/docs/flutter/wp-notify), which offers a more detailed guide.
 
 ## Usage
-To use this plugin, add `wp_notify` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
+To use this plugin, add `wp_notify` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins).
 
 ## Note
 Install WordPress plugin "WP Notify" 1.0.x or later for version 0.0.1

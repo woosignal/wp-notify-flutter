@@ -18,16 +18,15 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -37,13 +36,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // LINK https://woosignal.com/plugins/wordpress/wp-notify
 
     WPNotifyAPI.instance.initWith(baseUrl: "http://mysite.com");
-
   }
 
   _storeToken() async {
-    WPStoreTokenResponse wpStoreTokenResponse;
     try {
-      wpStoreTokenResponse = WPNotifyAPI.instance.api((request) => request.wpNotifyStoreToken(token: "fcm token", userId: 12));
+      WPStoreTokenResponse wpStoreTokenResponse = WPNotifyAPI.instance.api(
+          (request) =>
+              request.wpNotifyStoreToken(token: "fcm token", userId: 12));
+      print(wpStoreTokenResponse.toJson());
     } on Exception catch (e) {
       print(e);
     }

@@ -1,4 +1,4 @@
-// Copyright (c) 2020, WooSignal Ltd.
+// Copyright (c) 2021, WooSignal Ltd.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms are permitted
@@ -15,7 +15,6 @@
 
 library wp_notify;
 
-import 'package:flutter/foundation.dart';
 import 'package:wp_notify/helpers/typedefs.dart';
 import 'package:wp_notify/networking/network_manager..dart';
 
@@ -24,32 +23,32 @@ class WPNotifyAPI {
 
   static final WPNotifyAPI instance = WPNotifyAPI._privateConstructor();
 
-  String _baseUrl;
-  bool _shouldDebug;
+  late String _baseUrl;
+  bool? _shouldDebug;
   String _apiPath = "/wp-json";
 
   initWith(
-      {@required String baseUrl,
-        String wpJsonPath = '/wp-json',
-        bool shouldDebug = true}) {
+      {required String baseUrl,
+      String wpJsonPath = '/wp-json',
+      bool shouldDebug = true}) {
     _setBaseApi(baseUrl: baseUrl);
     _setApiPath(path: wpJsonPath);
     _setShouldDebug(value: shouldDebug);
   }
 
-  _setBaseApi({@required baseUrl}) {
+  _setBaseApi({required baseUrl}) {
     this._baseUrl = baseUrl;
   }
 
-  _setApiPath({@required path}) {
+  _setApiPath({required path}) {
     this._apiPath = path;
   }
 
-  _setShouldDebug({bool value}) {
+  _setShouldDebug({bool? value}) {
     this._shouldDebug = value;
   }
 
-  bool shouldDebug() {
+  bool? shouldDebug() {
     return this._shouldDebug;
   }
 

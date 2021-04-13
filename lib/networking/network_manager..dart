@@ -1,4 +1,4 @@
-// Copyright (c) 2020, WooSignal Ltd.
+// Copyright (c) 2021, WooSignal Ltd.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms are permitted
@@ -17,7 +17,6 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:wp_notify/enums/wp_route_type.dart';
 import 'package:wp_notify/models/responses/WPStoreTokenResponse.dart';
@@ -28,7 +27,7 @@ class WPNotifyNetworkManager {
   WPNotifyNetworkManager._privateConstructor();
 
   static final WPNotifyNetworkManager instance =
-  WPNotifyNetworkManager._privateConstructor();
+      WPNotifyNetworkManager._privateConstructor();
 
   /// Sends a request to update a users WooCommerce details using
   /// a valid [userToken], set optional parameters for updating user.
@@ -36,12 +35,8 @@ class WPNotifyNetworkManager {
   /// Returns [WCCustomerUpdatedResponse] future.
   /// Throws an [Exception] if fails.
   Future<WPStoreTokenResponse> wpNotifyStoreToken(
-      {@required String token,
-        @required int userId}) async {
-
-    Map<String, dynamic> payload = {
-      "token": token
-    };
+      {required String token, int? userId}) async {
+    Map<String, dynamic> payload = {"token": token};
 
     if (userId != null) {
       payload["user_id"] = userId;
@@ -65,16 +60,10 @@ class WPNotifyNetworkManager {
   /// Returns [WCCustomerUpdatedResponse] future.
   /// Throws an [Exception] if fails.
   Future<WPUpdateTokenResponse> wpNotifyUpdateToken(
-      {@required String token,
-        @required bool status}) async {
+      {required String token, required bool status}) async {
+    Map<String, dynamic> payload = {"token": token};
 
-    Map<String, dynamic> payload = {
-      "token": token
-    };
-
-    if (status != null) {
-      payload["status"] = status;
-    }
+    payload["status"] = status;
 
     // send http request
     final json = await _http(
@@ -94,13 +83,12 @@ class WPNotifyNetworkManager {
   ///
   /// Returns a [dynamic] response from the server.
   Future<dynamic> _http(
-      {@required String method,
-        @required String url,
-        dynamic body}) async {
-    var response;
+      {required String method, required String url, dynamic body}) async {
+    Uri uri = Uri.parse(url);
+    late var response;
     if (method == "GET") {
       response = await http.get(
-        url,
+        uri,
         headers: null,
       );
     } else if (method == "POST") {
@@ -109,7 +97,7 @@ class WPNotifyNetworkManager {
       };
 
       response = await http.post(
-        url,
+        uri,
         body: jsonEncode(body),
         headers: headers,
       );
@@ -131,13 +119,13 @@ class WPNotifyNetworkManager {
   /// log output if set. This will only log if shouldDebug is enabled.
   ///
   /// Returns void.
-  _devLogger({@required String url, String payload, String result}) {
+  _devLogger({required String url, String? payload, String? result}) {
     String strOutput = "\nREQUEST: " + url;
     if (payload != null) strOutput += "\nPayload: " + payload;
     if (result != null) strOutput += "\nRESULT: " + result;
 
     // logs response if shouldDebug is enabled
-    if (WPNotifyAPI.instance.shouldDebug()) log(strOutput);
+    if (WPNotifyAPI.instance.shouldDebug()!) log(strOutput);
   }
 
   /// Checks if a response payload has a bad status (=> 500).
@@ -154,15 +142,14 @@ class WPNotifyNetworkManager {
     return WPNotifyAPI.instance.getBaseApi() + _getRouteUrlForType(wpRouteType);
   }
 
-
   /// The routes available for the WP_JSON_API plugin
   /// set [wpRouteType] and use optional [apiVersion] to change API version.
   ///
   /// Returns [String] url path for request.
   String _getRouteUrlForType(
-      WPNotifyRouteType wpRouteType, {
-        String apiVersion = 'v1',
-      }) {
+    WPNotifyRouteType wpRouteType, {
+    String apiVersion = 'v1',
+  }) {
     String prefix = "wpnotify";
     switch (wpRouteType) {
       case WPNotifyRouteType.WPFcmTokenStore:
@@ -183,7 +170,7 @@ class WPNotifyNetworkManager {
   /// Throws an exception from the [json] status returned from a payload.
   _throwExceptionForStatusCode(json) {
     if (json != null && json['status'] != null) {
-      int statusCode = json["status"];
+      int? statusCode = json["status"];
       String message = json["message"] ?? 'Something went wrong';
 
       switch (statusCode) {
@@ -191,9 +178,11 @@ class WPNotifyNetworkManager {
           throw new Exception(message);
         case 567:
           throw new Exception(message);
-        default: {
-          throw new Exception('Something went wrong, please check server response');
-        }
+        default:
+          {
+            throw new Exception(
+                'Something went wrong, please check server response');
+          }
       }
     }
   }

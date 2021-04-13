@@ -1,4 +1,4 @@
-// Copyright (c) 2020, WooSignal Ltd.
+// Copyright (c) 2021, WooSignal Ltd.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms are permitted
@@ -17,4 +17,5 @@ import 'package:wp_notify/networking/network_manager..dart';
 
 /// The [RequestCallback] is used for calling a method in [WPAppNetworkManager]
 /// This is used on the api method in wp_json_api
-typedef RequestCallback = Future<dynamic> Function(WPNotifyNetworkManager request);
+typedef RequestCallback = Future<dynamic> Function(
+    WPNotifyNetworkManager request);

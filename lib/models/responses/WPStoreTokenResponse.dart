@@ -1,4 +1,4 @@
-// Copyright (c) 2020, WooSignal Ltd.
+// Copyright (c) 2021, WooSignal Ltd.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms are permitted
@@ -14,9 +14,9 @@
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 class WPStoreTokenResponse {
-  List<dynamic> data;
-  String message;
-  int status;
+  List<dynamic>? data;
+  String? message;
+  int? status;
 
   WPStoreTokenResponse({this.data, this.message, this.status});
 
@@ -38,4 +38,3 @@ class WPStoreTokenResponse {
     return data;
   }
 }
-

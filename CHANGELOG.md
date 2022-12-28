@@ -1,3 +1,8 @@
+## [1.0.1] - 2022-12-28
+
+* Dependency updates
+* Update copyright version
+
 ## [1.0.0] - 2021-04-13
 
 * Null safety support

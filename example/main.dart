@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wp_notify/models/responses/WPStoreTokenResponse.dart';
 import 'package:wp_notify/wp_notify.dart';
 
 void main() => runApp(MyApp());
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'WooSignal Demo Home Page'),
+      home: MyHomePage(title: 'Wp Notify Demo Home Page'),
     );
   }
 }

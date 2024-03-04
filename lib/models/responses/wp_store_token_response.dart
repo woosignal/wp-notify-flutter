@@ -1,4 +1,4 @@
-// Copyright (c) 2023, WooSignal Ltd.
+// Copyright (c) 2024, WooSignal Ltd.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms are permitted
@@ -13,6 +13,8 @@
 // IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
 // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
+/// The [WPStoreTokenResponse] class is used to parse the response
+/// from the store token request.
 class WPStoreTokenResponse {
   List<dynamic>? data;
   String? message;

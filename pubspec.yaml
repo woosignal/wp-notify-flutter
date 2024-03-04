@@ -1,16 +1,18 @@
 name: wp_notify
 description: Send push notification from WordPress using Firebase Cloud Messaging. This package automatically pushes your FCM token to WordPress to start sending notifications. Features include the ability to assign a WordPress user with an FCM token and send push notifications to IOS/Android devices using our API in WordPress.
-version: 1.0.1
+version: 2.0.0
 homepage: https://woosignal.com
 repository: https://github.com/woosignal/wp-notify-flutter
 issue_tracker: https://github.com/woosignal/wp-notify-flutter/issues
 documentation: https://woosignal.com/docs/flutter/wp-notify
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=1.17.0"
 
 dependencies:
-  http: ^0.13.5
+  nylo_support: ^5.51.0
+  pretty_dio_logger: ^1.3.1
   flutter:
     sdk: flutter
 

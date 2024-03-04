@@ -1,3 +1,7 @@
+## [2.0.1] - 2024-03-04
+
+* Add screenshot
+
 ## [2.0.0] - 2024-03-04
 
 * Dependency updates

@@ -21,7 +21,7 @@ export '/models/responses/wp_update_token_response.dart';
 export '/networking/wp_notify_api_service.dart';
 
 /// MediaPro version
-const String _wpNotify = '2.0.1';
+const String _wpNotify = '2.0.2';
 
 /// The [WPNotifyAPI] class is used to configure the WPNotify package.
 class WPNotifyAPI {

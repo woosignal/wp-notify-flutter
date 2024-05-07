@@ -37,7 +37,7 @@ class WpNotifyApiService extends NyApiService {
 
   /// Sends a request to store a user's FCM token into WordPress
   /// using a valid [userToken], set optional parameters for updating user.
-  Future<WPStoreTokenResponse> wpNotifyStoreToken(
+  Future<WPStoreTokenResponse?> wpNotifyStoreToken(
       {required String token, int? userId}) async {
     Map<String, dynamic> payload = {"token": token};
 
@@ -60,7 +60,7 @@ class WpNotifyApiService extends NyApiService {
 
   /// Sends a request to update a user's FCM token into WordPress
   /// using a valid [token] and [status].
-  Future<WPUpdateTokenResponse> wpNotifyUpdateToken(
+  Future<WPUpdateTokenResponse?> wpNotifyUpdateToken(
       {required String token, required bool status}) async {
     Map<String, dynamic> payload = {"token": token};
     payload["status"] = status;

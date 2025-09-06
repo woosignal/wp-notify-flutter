@@ -1,3 +1,7 @@
+## [2.0.4] - 2025-09-06
+
+* Dependency updates
+
 ## [2.0.3] - 2024-05-07
 
 * Fix error in API service

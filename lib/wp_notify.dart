@@ -1,4 +1,4 @@
-// Copyright (c) 2024, WooSignal Ltd.
+// Copyright (c) 2025, WooSignal Ltd.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms are permitted
@@ -21,7 +21,7 @@ export '/models/responses/wp_update_token_response.dart';
 export '/networking/wp_notify_api_service.dart';
 
 /// MediaPro version
-const String _wpNotify = '2.0.3';
+const String _wpNotify = '2.0.4';
 
 /// The [WPNotifyAPI] class is used to configure the WPNotify package.
 class WPNotifyAPI {
